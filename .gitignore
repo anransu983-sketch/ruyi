@@ -1,0 +1,9 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+build/
+app/build/
+build-manual/
+# 签名钥只走 CI Secrets 解码生成，不入库
+app/src/main/assets/ruyi-release.keystore

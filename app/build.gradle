@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.application'
+}
+
+def ksFile = System.getenv('RUYI_KS_FILE') ?: '/home/hatch/workspace/keys/ruyi-release.keystore'
+def ksPass = System.getenv('RUYI_KS_PASS') ?: new File('/home/hatch/workspace/keys/ruyi-release.pass.txt').text.trim()
+
+android {
+    namespace 'com.suanran.ruyi'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'com.suanran.ruyi'
+        minSdk 29
+        targetSdk 36
+        versionCode 1
+        versionName '0.1.0'
+        buildConfigField 'String', 'CLONE_KS_PASS', "\"${ksPass}\""
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(ksFile)
+            storePassword ksPass
+            keyAlias 'ruyi'
+            keyPassword ksPass
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.tools.build:apksig:9.0.0'
+}

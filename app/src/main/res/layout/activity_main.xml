@@ -38,7 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:layout_marginRight="6dp"
+            android:layout_marginRight="4dp"
             android:gravity="center"
             android:text="应用"
             android:textSize="15sp" />
@@ -48,11 +48,32 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:layout_marginLeft="6dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
             android:gravity="center"
             android:text="我的分身"
             android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tabWeb"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="4dp"
+            android:gravity="center"
+            android:text="网页分身"
+            android:textSize="15sp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/addWebBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="4dp"
+        android:text="＋ 新建网页身份"
+        android:visibility="gone" />
 
     <EditText
         android:id="@+id/searchBox"
@@ -85,6 +106,18 @@
 
         <ListView
             android:id="@+id/cloneList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:clipToPadding="false"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/webList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@null"

@@ -55,7 +55,8 @@ jobs:
       - name: Rename artifact
         run: |
           mkdir -p dist
-          cp app/build/outputs/apk/release/app-release.apk dist/ruyi-${{ github.ref_name == 'main' && '0.1.0' || github.ref_name }}.apk
+          VER=$(grep -oP "versionName '\K[^']+" app/build.gradle)
+          cp app/build/outputs/apk/release/app-release.apk "dist/ruyi-${VER}.apk"
           ls -lh dist
 
       - name: Upload artifact
